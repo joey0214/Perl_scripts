@@ -17,8 +17,7 @@ my @fileContent =<FILE>;
 my $wholeString ="";
 foreach my $_(@fileContent) {
 	chop($_);
-	$wholeString=$wholeString.$_;
-	
+	$wholeString=$wholeString.$_;	
 }
 my @words=split(/\b/,$wholeString);
 my (%count, $word);
