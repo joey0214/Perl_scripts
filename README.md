@@ -11,3 +11,6 @@ extract information from genbank file, separated by tab(\t); can open it as exce
 
 ##detectTopic.pl
 script draft. try to detect hot topics based on pubmed summary result.
+
+##getFileNames.pl
+get pdb file name list for MUSTANG."readdir" will get the purrent work path(.) and parent path(..), so use if loop to delte those.
