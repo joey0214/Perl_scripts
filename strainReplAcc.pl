@@ -1,7 +1,7 @@
 #!local/bin/perl -w
 #@author :joey zhong
 #@version:2013-04-16
-#Usage:perl $0 GBinfile FASTAoutfile
+#Usage:perl strainReplAcc.pl GBinfile FASTAoutfile
 #Extension: if you want to choose other information as the sequence's name,
 #           edit the line 100.
 #           this script just choose strain as sequence name.
