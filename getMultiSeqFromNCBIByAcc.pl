@@ -19,7 +19,7 @@ while(my $seq=$allseq->next_seq){
   #my $filename=$seq->accession;
 	my $output = new Bio::SeqIO(-file=>">>output.fasta",-format=>"fasta");
 	#if you want fasta seq,can use next
-	#my $output = new Bio::SeqIO(-file=>">$filename.gb",-format=>"genbank"
+	#my $output = new Bio::SeqIO(-file=>">$filename.gb",-format=>"genbank");
 	if($seq){
 		$output->write_seq($seq);
 	}
