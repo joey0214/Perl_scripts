@@ -1,7 +1,7 @@
 #!usr/bin/local/perl -w
 #@author :joey
 #@version:2012-05-10
-#usage: perl get_multi_seq_fromNCBI_by_acc.pl acc_file.txt
+#usage: perl get_multi_seq_fromNCBI_by_acc.pl acc_file.txt fasta[genbank]
 #use this program,can get seq by accession number from NCBI,and name it by acc.
 #$ARGV[0]=acc.txt
 
@@ -17,7 +17,14 @@ my $db=new Bio::DB::GenBank();
 my $allseq=$db->get_Stream_by_acc([@acc]);
 while(my $seq=$allseq->next_seq){
   #my $filename=$seq->accession;
-	my $output = new Bio::SeqIO(-file=>">>output.fasta",-format=>"fasta");
+    my $output;
+	if ($ARGV[1] eq "fasta" | $ARGV[1] eq "FASTA"){
+		$output = new Bio::SeqIO(-file=>">>output.fasta",-format=>"fasta");
+	}
+	if ($ARGV[1] eq "genbank" | $ARGV[1] eq "GENBANK"){
+		$output = new Bio::SeqIO(-file=>">>output.gb",-format=>"genbank");
+	}
+	#my $output = new Bio::SeqIO(-file=>">>output.fasta",-format=>"fasta");
 	#if you want fasta seq,can use next
 	#my $output = new Bio::SeqIO(-file=>">$filename.gb",-format=>"genbank");
 	if($seq){
