@@ -36,59 +36,63 @@ while (my $seqObj = $seqInGenbank -> next_seq)
 	
 	for my $feat($seqObj -> get_SeqFeatures)
 	{
-		if ($seqLength > 890){
-			#get organism information
-			if ($feat ->has_tag('organism'))
-			{
-				$organism =${[$feat ->get_tag_values('organism')]}[0];
-			}
-			#get mol_type information
-			if ($feat ->has_tag('mol_type'))
-			{
-				$mol_type =${[$feat ->get_tag_values('mol_type')]}[0];
-			}
-			#get isolate information
-			if ($feat ->has_tag('isolate'))
-			{
-				$isolate =${[$feat ->get_tag_values('isolate')]}[0];
-			}
-			#get isolation_source information
-			if ($feat ->has_tag('isolation_source'))
-			{
-				$isolation_source =${[$feat ->get_tag_values('isolation_source')]}[0];
-			}
-			#get host information
-			if ($feat ->has_tag('host'))
-			{
-				$host =${[$feat ->get_tag_values('host')]}[0];
-			}
-			#get country information
-			if ($feat ->has_tag('country'))
-			{
-				$country =${[$feat ->get_tag_values('country')]}[0];
-			}
-			#get collection_date information
-			if ($feat ->has_tag('collection_date'))
-			{
-				$collection_date =${[$feat ->get_tag_values('collection_date')]}[0];
-			}
-			#get note information
-			if ($feat ->has_tag('note'))
-			{
-				$note =${[$feat ->get_tag_values('note')]}[0];
-			}
-			#get strain information
-			if ($feat ->has_tag('strain'))
-			{
-				$strain =${[$feat ->get_tag_values('strain')]}[0];
-			}
-			#get taxon information
-			if ($feat -> has_tag('db_xref'))
-			{
-				$taxon=${[$feat -> get_tag_values('db_xref')]}[0];
-			}
+
+		#get organism information
+		if ($feat ->has_tag('organism'))
+		{
+			$organism =${[$feat ->get_tag_values('organism')]}[0];
+		}
+		#get mol_type information
+		if ($feat ->has_tag('mol_type'))
+		{
+			$mol_type =${[$feat ->get_tag_values('mol_type')]}[0];
+		}
+		#get isolate information
+		if ($feat ->has_tag('isolate'))
+		{
+			$isolate =${[$feat ->get_tag_values('isolate')]}[0];
+		}
+		#get isolation_source information
+		if ($feat ->has_tag('isolation_source'))
+		{
+			$isolation_source =${[$feat ->get_tag_values('isolation_source')]}[0];
+		}
+		#get host information
+		if ($feat ->has_tag('host'))
+		{
+			$host =${[$feat ->get_tag_values('host')]}[0];
+		}
+		#get country information
+		if ($feat ->has_tag('country'))
+		{
+			$country =${[$feat ->get_tag_values('country')]}[0];
+		}
+		#get collection_date information
+		if ($feat ->has_tag('collection_date'))
+		{
+			$collection_date =${[$feat ->get_tag_values('collection_date')]}[0];
+		}
+		#get note information
+		if ($feat ->has_tag('note'))
+		{
+			$note =${[$feat ->get_tag_values('note')]}[0];
+		}
+		#get strain information
+		if ($feat ->has_tag('strain'))
+		{
+			$strain =${[$feat ->get_tag_values('strain')]}[0];
+		}
+		#get taxon information
+		if ($feat -> has_tag('db_xref'))
+		{
+			$taxon=${[$feat -> get_tag_values('db_xref')]}[0];
+		}
+
+		if ($seqLength > 890)
+		{
+			print OUTFILE $accessionNumber."\t".$seqLength."\t".$organism."\t".$mol_type."\t".$strain."\t".$isolate."\t".$isolation_source."\t".$host."\t".$country."\t".$collection_date."\t".$taxon."\t".$note."\n";
 		}
 	}
-	print OUTFILE $accessionNumber."\t".$seqLength."\t".$organism."\t".$mol_type."\t".$strain."\t".$isolate."\t".$isolation_source."\t".$host."\t".$country."\t".$collection_date."\t".$taxon."\t".$note."\n";
+	
 }
 close OUTFILE;
